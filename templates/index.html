@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{%block onload%}<body onload="initIndex()">{%endblock%}
+
+{%block main %}
+  <main>
+    <div id="main-elem">
+      <img id="Main-img" src="{{ url_for('static', filename='images/lake.jpg') }}" alt="a landscape photo of a large lake">
+      <div class="small-img-group">
+        <img id="smaller-img1" class="small-img" src="{{ url_for('static', filename='images/black-castle.jpg') }}" alt="The outside of a pub">
+        <img id="smaller-img2" class="small-img" src="{{ url_for('static', filename='images/faces.jpg') }}"
+          alt="A photo of a woman wearing a mask and with two more on her hands">
+        <img id="smaller-img3" class="small-img" src="{{ url_for('static', filename='images/rock.jpg') }}" alt="a landscape photo of a large rock and wall">
+        <img id="smaller-img4" class="small-img" src="{{ url_for('static', filename='images/bike.jpeg') }}" alt="an action shot of a bmx trick">
+      </div>
+      <div id="about-us">
+        <h1>About Us</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium nisi cupiditate, cumque corrupti
+          consequatur numquam? Non adipisci, voluptatem veniam vitae tempore quam
+          molestias, aspernatur vero laboriosam veritatis, ullam eius distinctio?Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Dolorum debitis,
+          voluptatibus unde quod, soluta hic suscipit repudiandae a eaque, quidem consectetur temporibus qui! Fugit
+          alias, veritatis vero eaque facere ipsam Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Dolore consequuntur velit obcaecati at non provident laboriosam eaque! Doloribus
+          adipisci exercitationem aperiam ex deserunt ullam? Esse repellat error temporibus animi ipsum!
+        </p>
+      </div>
+    </div>
+
+
+  </main>
+  <footer>
+    <div id="footer">
+      <!-- Third party form submission that sends the contents of the form to my email using the access key-->
+      <div id="form-elem">
+        <h1>Contact us</h1>
+        <h2>Looking for custom work ?</h2>
+        <p>Send us an email with all the details and we will get back to you as soon as possible!</p>
+        <form id="index-form" action="https://api.web3forms.com/submit" method="POST">
+
+
+          <input type="hidden" name="access_key" value="a46a88d4-d8a0-4ed0-bd00-1a8de38e5ae1">
+
+          <label><span class="hidden">NAME</span>
+            <input autocomplete="name" id="name-box" class="input-box" type="text" name="name" placeholder="Name...."
+              required>
+          </label>
+          <label><span class="hidden">email</span>
+            <input autocomplete="email" id="email-box" class="input-box" type="email" name="email"
+              placeholder="Email...." required>
+          </label>
+          <label name="textbox"><span class="hidden">INPUT BOX</span>
+            <textarea id="textbox" class="input-box" name="message" placeholder="Your Message Here...."
+              required></textarea>
+          </label>
+          <label><span class="hidden">BOTCHECK</span>
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          </label>
+
+          <input type="hidden" name="redirect" value="http://127.0.0.1:9101/success">
+
+          <button onclick='redirect()' class="form-submit-button" type="submit">Send Message</button>
+
+        </form>
+        {% endblock %}
+        {% block footer%}
+
+
+    <a href="mailto:aaronrichards46@gmail.com" id="copyright">© 2025 Aaron Richards. All Rights Reserved.</a>
+
+
+  </footer>
+</body>
+</html>
+{%endblock%}

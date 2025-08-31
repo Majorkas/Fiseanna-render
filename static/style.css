@@ -1,0 +1,385 @@
+@media (max-width: 426px) {
+  /* Mobile Styles */
+  #main-elem {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  #Main-img {
+    width: 100%;
+
+  }
+  #main-display{
+    width: 70%;
+
+  }
+
+
+  .main-nav a {
+    font-size: 2.5em;
+    padding-bottom: 40px;
+    padding-right: 35px;
+    color: white;
+
+
+  }
+
+  .main-nav a:focus {
+    color: #F2E8CF;
+  }
+  .menu-button:focus {
+    color: #F2E8CF;
+  }
+
+}
+
+
+@media (min-width:426px) {
+  /* Larger screen styles */
+  .main-nav a:hover {
+    color: #F2E8CF;
+  }
+  #about-us {
+    background-color: #1e4a07a0;
+    margin: 2px;
+    padding: 5px;
+  }
+  #main-display{
+    width: 400px;
+
+  }
+
+
+  .menu-button:hover {
+    color: #F2E8CF;
+  }
+
+  .hidden {
+    display: none;
+    transition-duration: 0.75s;
+  }
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  #main-elem {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  .small-img {
+
+    transition: border 0.75s;
+
+  }
+  #Main-img {
+    width: 300px;
+    min-width: 300px;
+    max-height: 350px;
+  }
+
+  .small-img:hover {
+    border: #1e4a0791 solid 10px;
+  }
+  .main-nav a {
+    text-decoration: underline;
+    color: whitesmoke;
+    font-size: 3em;
+    font-weight: bolder;
+  }
+
+}
+
+
+/* Universal styles */
+body {
+  background-color: #F2E8CF;
+  font-family: sans-serif;
+
+}
+#banner-elem {
+  background-image: url("images/sheep-pic.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 400px;
+  width: 100%;
+  border: #1f4a07 solid 2px;
+}
+.menu-button {
+  text-decoration: underline;
+  color: #f5f5f5;
+  font-size: 1.5em;
+  font-weight: bolder;
+  border: none;
+  background-color: #1f4a07;
+  margin: 0 auto;
+  display: block;
+  font-family: "Uncial Antiqua", sans-serif;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+
+}
+.small-img {
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+  border: #1f4a07 solid 10px;
+}
+#Main-img {
+  display: block;
+  height: auto;
+  border: #1f4a07 solid 5px;
+}
+#motto {
+  text-align: center;
+  color: whitesmoke;
+  background-color: #1e4a0785;
+  font-family: "Uncial Antiqua", sans-serif;
+}
+h1 {
+  font-family: "Uncial Antiqua", sans-serif;
+}
+h2 {
+  font-family: "Uncial Antiqua", sans-serif;
+}
+#logo {
+  text-align: center;
+  color: #1f4a07;
+  text-shadow: 2px 2px 2px black;
+  font-weight: bolder;
+  font-size: 3.5em;
+  text-decoration: underline;
+}
+#about-us {
+  background-color: #1e4a07a0;
+  color: white;
+}
+ul {
+  list-style: none;
+  font-family: "Uncial Antiqua", sans-serif;
+}
+
+#form-elem {
+  background-color: #0000004f;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+#index-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #0000007c;
+  align-self: center;
+
+}
+#name-box {
+  margin: 10px;
+  width: 75px;
+  align-self: center;
+}
+#email-box {
+  margin: 10px;
+  width: 90px;
+  align-self: center;
+
+
+}
+#textbox {
+  margin: 10px;
+  width: 200px;
+  align-self: center;
+
+}
+.form-submit-button {
+  width: 75px;
+  align-self: center;
+  background-color: #1f4a07;
+  color: #F2E8CF;
+  box-shadow: black 2px, ;
+  margin-bottom: 10px;
+}
+.input-box {
+  background-color: #F2E8CF;
+  border: #1f4a07 5px solid;
+  color: #1f4a07;
+}
+.input-box:focus {
+  background-color: #1f4a07;
+  color: #F2E8CF;
+}
+#footer {
+  background-color: #1e4a07c9;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: white;
+}
+
+#copyright {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: smaller;
+  padding: 5px;
+  color: white;
+}
+
+.success-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 50px;
+  text-align: center;
+
+
+}
+
+.success-heading {
+  font-size: 3em;
+
+}
+
+.shop-elem{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+text-align: center;
+background-color: #1e4a078d;
+
+}
+.shop-item{
+  max-width: 300px;
+  max-height: 225px;
+  /* padding-bottom: 15px; */
+  margin: 25px;
+  border: #1f4a07 groove 5px;
+  background-color: #1f4a07;
+  color: antiquewhite;
+  transition: all 0.75s;
+
+}
+.shop-item:hover{
+  border: #1e4a0780 groove 10px;
+  color: #F2E8CF
+}
+.shop-img{
+  max-width: 175px;
+  height: 150px;
+}
+
+.shipping-txt{
+  color: white;
+}
+
+#store-item-imgs{
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+.store-footer{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-display-elem{
+  background-color: #1e4a07d3;
+  border: #1f4a07 5px groove;
+  margin: 10px;
+}
+#main-display{
+  display: block;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+  margin-top: 20px;
+  border: #1f4a07 5px inset;
+  margin: 20px;
+
+}
+.store-small-img-group{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  background-color: #1e4a079b;
+  border: #1f4a07 5px groove;
+
+}
+.store-small-img{
+  margin: 25px;
+  width: 75px;
+  height: auto;
+  border: #1f4a07 3px groove;
+
+}
+.item-desc{
+background-color: #1e4a0760;
+ border: #1f4a07 3px groove;
+ margin: 20px;
+ color: white;
+
+}
+#item-choice{
+  background-color: #1e4a0781;
+  margin: 10px;
+  border: #1f4a07 3px groove;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.form-item{
+  margin-top: 45px;
+  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: antiquewhite;
+
+}
+#print-size{
+  background-color: #1f4a07;
+  color: antiquewhite;
+}
+#store-submit{
+  background-color: #1f4a07;
+  color: antiquewhite;
+}
+#item-price {
+font-size: 1.5em;
+display: block;
+border: #1f4a07 solid 2px;
+padding: 5px;
+text-align: center;
+color: antiquewhite;
+
+
+}
+.store-item-desc{
+  margin-left: 20px;
+}
+
+.print-desc{
+  text-align: center;
+  color: antiquewhite;
+  text-decoration: underline;
+}
+.store-item-copyright{
+  border: #1f4a07 outset 3px;
+}
+
+#framed-img {
+  width: 125px;
+  height: auto;
+}
