@@ -32,16 +32,11 @@
   </main>
   <footer>
     <div id="footer">
-      <!-- Third party form submission that sends the contents of the form to my email using the access key-->
       <div id="form-elem">
         <h1>Contact us</h1>
         <h2>Looking for custom work ?</h2>
         <p>Send us an email with all the details and we will get back to you as soon as possible!</p>
-        <form id="index-form" action="https://api.web3forms.com/submit" method="POST">
-
-
-          <input type="hidden" name="access_key" value="a46a88d4-d8a0-4ed0-bd00-1a8de38e5ae1">
-
+        <form id="index-form" action="{{ url_for('form_submission') }}" method="POST">
           <label><span class="hidden">NAME</span>
             <input autocomplete="name" id="name-box" class="input-box" type="text" name="name" placeholder="Name...."
               required>
@@ -57,14 +52,11 @@
           <label><span class="hidden">BOTCHECK</span>
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
           </label>
-
-          <input type="hidden" name="redirect" value="http://127.0.0.1:9101/success">
-
-          <button onclick='redirect()' class="form-submit-button" type="submit">Send Message</button>
+          <button class="form-submit-button" type="submit">Send Message</button>
 
         </form>
-        {% endblock %}
-        {% block footer%}
+{% endblock %}
+{% block footer%}
 
 
     <a href="mailto:aaronrichards46@gmail.com" id="copyright">© 2025 Aaron Richards. All Rights Reserved.</a>
