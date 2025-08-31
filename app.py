@@ -1,10 +1,23 @@
-from flask import Flask, render_template
+import os
+
+from flask import Flask, render_template, request, redirect, url_for, session
+
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route('/', methods=['POST'])
+def form_submission():
+    name = request.form["name"]
+    email = request.form['email']
+    message = request.form['message']
+    with open("form-submission.txt", 'a') as f:
+        f.write(f"\n\n\n\nNew Submission\nName: {name}\nEmail: {email}\nMessage: {message}")
+    return redirect(url_for('success'))
+
 
 @app.route("/success")
 def success():
