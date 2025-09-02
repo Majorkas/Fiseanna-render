@@ -23,10 +23,6 @@ const IMG_ID_SRC = {
   'smaller-img4': "static/images/bike.jpeg",
 }
 
-function redirect() {
-  window.location = "/success";
-}
-
 function imgSwap(imgSrc) {
   mainImg.src = imgSrc;
 
@@ -38,6 +34,7 @@ function imgSwapBack() {
 }
 let count = 6;
 function redirectPage() {
+  // countdown for the redirect that once it hits 0 redirects the page back to '/'
   count--;
   document.getElementById('countDown').innerHTML = count;
   if (count == 0) {
@@ -46,6 +43,8 @@ function redirectPage() {
 }
 
 function shippingCalcultor(selectedAddress) {
+
+  // function takes the selection from the drop down and then outputs a price to a span dependant on the selection
   document.getElementById('drop-selection').innerText = selectedAddress.options[address.selectedIndex].text;
   let selection = selectedAddress.value
   console.log(selection)
@@ -61,6 +60,8 @@ function shippingCalcultor(selectedAddress) {
 }
 
 function runFullCalculation(event) {
+
+  // The final calculation for the store item using all the helper functions and calculates the cost to then finally output the price to the span //
   if (event) {
     event.preventDefault();
   }
@@ -79,6 +80,7 @@ function outputToSpan(spanId, value) {
 }
 
 function printPriceF(sizeSelection) {
+  // checks the selection from the drop down and returns appropriate price
   if (sizeSelection === '11"x17"') {
     return SMALL_PRINT;
   } else if (sizeSelection === '18"x24"' ) {
@@ -91,6 +93,7 @@ function printPriceF(sizeSelection) {
 }
 
 function framePriceF(addFrame) {
+  //takes the check of if the checkbox is checked as an input and returns the correct img src and alt
   const FRAME_PIC = document.getElementById('framed-img').src
   const FRAME_PIC_ALT = document.getElementById('framed-img').alt
   const NO_FRAME_PIC = document.getElementById('no-frame').src
@@ -102,6 +105,8 @@ function framePriceF(addFrame) {
 }
 
 function storeItemInit() {
+  //init function to add event listeners
+
   menuButton[0].addEventListener('click', () => {
     mainNav.classList.toggle('hidden');
     mottoTxt.classList.toggle('hidden');
@@ -111,11 +116,13 @@ function storeItemInit() {
 }
 
 function initIndex() {
+  //init function to add event listeners
   menuButton[0].addEventListener('click', () => {
     mainNav.classList.toggle('hidden');
     mottoTxt.classList.toggle('hidden');
 
   });
+
   Object.entries(IMG_ID_SRC).forEach(([imgId, imgSrc]) => {
     const imgElem = document.getElementById(imgId);
     imgElem.addEventListener("mouseover", () => imgSwap(imgSrc) );
@@ -126,6 +133,7 @@ function initIndex() {
 }
 
 function initStore() {
+  //init function to add event listeners
  menuButton[0].addEventListener('click', () => {
     mainNav.classList.toggle('hidden');
     mottoTxt.classList.toggle('hidden');
@@ -135,5 +143,6 @@ function initStore() {
 }
 
 function initRedirect() {
+  //runs the redirect function
   setInterval(redirectPage, 1000)
 }
