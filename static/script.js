@@ -41,6 +41,14 @@ function redirectPage() {
     window.location = "/";
   }
 }
+function redirectPageAccountCreation() {
+  // countdown for the redirect that once it hits 0 redirects the page back to '/'
+  count--;
+  document.getElementById('countDown').innerHTML = count;
+  if (count == 0) {
+    window.location = "/store";
+  }
+}
 
 function shippingCalcultor(selectedAddress) {
 
@@ -78,6 +86,7 @@ function runFullCalculation(event) {
 function outputToSpan(spanId, value) {
   document.getElementById(spanId).innerText = "€" + value;
 }
+
 
 function printPriceF(sizeSelection) {
   // checks the selection from the drop down and returns appropriate price
@@ -131,6 +140,13 @@ function initIndex() {
     imgElem.addEventListener("touchcancel", imgSwapBack);
   });
 }
+function initAccount() {
+  menuButton[0].addEventListener('click', () => {
+    mainNav.classList.toggle('hidden');
+    mottoTxt.classList.toggle('hidden');
+  });
+
+  }
 
 function initStore() {
   //init function to add event listeners
@@ -145,4 +161,8 @@ function initStore() {
 function initRedirect() {
   //runs the redirect function
   setInterval(redirectPage, 1000)
+}
+function initRedirectAccountCreation() {
+  //runs the redirect function
+  setInterval(redirectPageAccountCreation, 1000)
 }
