@@ -1,2 +1,4 @@
 flask ~= 2.0 # (Any version starting with "2.")
 Gunicorn
+flask_socketio
+dotenv
