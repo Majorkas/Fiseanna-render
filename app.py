@@ -1,8 +1,9 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
+from flask_socketio import SocketIO, emit
 
 from flask import Flask, render_template, request, redirect, url_for, session
-load_dotenv('enviro.env')
+# load_dotenv('enviro.env')
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
