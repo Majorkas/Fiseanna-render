@@ -164,6 +164,12 @@ ul {
   list-style: none;
   font-family: "Uncial Antiqua", sans-serif;
 }
+.error-message{
+font-size: 1em;
+color: red;
+text-align: center;
+
+}
 
 #form-elem {
   background-color: #0000004f;
@@ -208,6 +214,7 @@ ul {
   background-color: #F2E8CF;
   border: #1f4a07 5px solid;
   color: #1f4a07;
+  margin: 5px;
 }
 .input-box:focus {
   background-color: #1f4a07;
@@ -259,7 +266,6 @@ background-color: #1e4a078d;
 .shop-item{
   max-width: 300px;
   max-height: 225px;
-  /* padding-bottom: 15px; */
   margin: 25px;
   border: #1f4a07 groove 5px;
   background-color: #1f4a07;
