@@ -1,9 +1,25 @@
 import os
+from dotenv import load_dotenv
 
 from flask import Flask, render_template, request, redirect, url_for, session
-
+load_dotenv('enviro.env')
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
+class PasswordError(Exception):
+    pass
+
+class Account:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+error_message_dict = {
+    'username_create' : 'Sorry this Username is already in use',
+    'password_not_match' : 'Password does not match',
+    'incorrect_password' : 'Incorrect Password, Please try again',
+    'User_not_found' : 'Username does not exist, Please create and account'
+}
+user_log_in_info = {}
 
 @app.route("/")
 def index():
@@ -23,9 +39,48 @@ def form_submission():
 def success():
     return render_template("success.html")
 
+@app.route("/account-created")
+def created():
+    return render_template("account-created.html")
+
 @app.route("/store")
 def store():
     return render_template("store.html")
+@app.route('/account')
+def account():
+    return render_template("account.html")
+
+@app.route("/create", methods=['POST'])
+def create():
+
+        username = request.form['create-username']
+        password = request.form['create-password']
+        confirmed_password = request.form['confirm-password']
+        if password != confirmed_password:
+            return render_template('account.html', message = error_message_dict['password_not_match'] )
+        if username in user_log_in_info:
+            return render_template('account.html', message = error_message_dict['username_create'] )
+
+        username = Account(username,password)
+        user_log_in_info[username.username] = username.password
+        return redirect(url_for('created'))
+
+@app.route("/store", methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    if username not in user_log_in_info:
+        return render_template('store.html', message = error_message_dict['User_not_found'])
+    if password != user_log_in_info.get(username):
+        return render_template('store.html', message = error_message_dict['incorrect_password'])
+    session['username'] = username
+    return redirect(url_for('store'))
+
+
+
+
+
 
 @app.route("/store/blackcastle")
 def blackcastle():
