@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 {%block onload%}<body onload="initStore()">{%endblock%}
 {%block main%}
+
 <main>
+
+  <div id='form-elem'>
+  {% if session['username'] %}
+
+   <div id='logged-in'>
+      <h1>Welcome back, {{session['username']}}</h1>
+    </div>
+    {% else %}
+    <div id='log-in'>
+      <h3>Returning Customer ?</h3>
+      <span id='error' class='error-message'>{{message}}</span>
+    <p>Enter your username and password to log-in or <a href="{{ url_for('account') }}">Click Here</a> to create an account</p>
+      <form id='index-form' action="{{ url_for('login') }}" method='POST'>
+        <label><span class="hidden">username</span><input  class='input-box' type='text' required name='username' placeholder='Username...'></label>
+        <label><span class="hidden">password</span><input  class='input-box' type='password' required name='password' placeholder='Password...'></label>
+        <button class="form-submit-button" type="submit">Log-in</button>
+      </form>
+    </div>
+  {%endif %}
+
+  </div>
+
   <div class="shop-elem">
     <a href="{{ url_for('blackcastle') }}" class="shop-item">
       <img class="shop-img" alt="Image of the front of a pub called the black castle" src={{ url_for('static', filename='images/black-castle.jpg')}}>
@@ -32,7 +55,7 @@
       <p class="shop-txt">Bird On A Tree Print<br>€6.00 - €25.99</p>
     </a>
     <a href="{{ url_for('lighthouse') }}" class="shop-item">
-      <img class="shop-img" alt="image of someone jumping a gap infront of a lighthouse" src={{ url_for('static', filename='images/lighthouse.jpg')}}>
+      <img class="shop-img" alt="image of someone jumping a gap in front of a lighthouse" src={{ url_for('static', filename='images/lighthouse.jpg')}}>
       <p class="shop-txt">The Lighthouse Print<br>€6.00 - €25.99</p>
     </a>
     <a href="{{ url_for('hills') }}" class="shop-item">
