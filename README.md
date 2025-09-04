@@ -1,2 +1,2 @@
 # Fiseanna-render
-an updated version of Fiseanna to used Flask and render.com
+an updated version of Fiseanna to use Flask and render.com
