@@ -1,0 +1,32 @@
+{%extends "base.html"%}
+{%block onload%}<body onload="initAccount()" > {%endblock%}
+{%block main%}
+
+
+
+<div id='create'>
+      <h3>Fill in your details bellow</h3>
+      <span id='error' class='error-message'>{{message}}</span>
+      <form class="hidden" id='index-form' action="{{ url_for('create') }}" method='POST'>
+        <label><span class="hidden">username</span><input  class='input-box' type='text' required name='create-username' placeholder='Username...'></label>
+        <label><span class="hidden">password</span><input  class='input-box' type='password' required name='create-password' placeholder='Password...'></label>
+        <label><span class="hidden">confirm password</span><input  class='input-box' type='password' required name='confirm-password' placeholder='Confirm Password'></label>
+        <button class="form-submit-button" type="submit">Create Account</button>
+      </form>
+    </div>
+
+
+
+
+
+{%endblock%}
+{% block footer%}
+
+
+    <a href="mailto:aaronrichards46@gmail.com" id="copyright">© 2025 Aaron Richards. All Rights Reserved.</a>
+
+
+  </footer>
+</body>
+</html>
+{%endblock%}
