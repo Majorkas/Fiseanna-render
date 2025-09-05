@@ -8,18 +8,21 @@
   {% if session['username'] %}
 
    <div id='logged-in'>
-      <h1>Welcome back, {{session['username']}}</h1>
+      <h1>Welcome back, {{session['username']}} </h1>
+        <form action="{{url_for('logout')}}"><button class="form-submit-button" type="submit">Log Out</button></form>
     </div>
     {% else %}
-    <div id='log-in'>
-      <h3>Returning Customer ?</h3>
-      <span id='error' class='error-message'>{{message}}</span>
-    <p>Enter your username and password to log-in or <a href="{{ url_for('account') }}">Click Here</a> to create an account</p>
-      <form id='index-form' action="{{ url_for('login') }}" method='POST'>
-        <label><span class="hidden">username</span><input  class='input-box' type='text' required name='username' placeholder='Username...'></label>
-        <label><span class="hidden">password</span><input  class='input-box' type='password' required name='password' placeholder='Password...'></label>
-        <button class="form-submit-button" type="submit">Log-in</button>
-      </form>
+    <div id='create-login-form'>
+      <div id='form-elem'>
+        <h3>Returning Customer ?</h3>
+        <span id='error' class='error-message'>{{message}}</span>
+        <p>Enter your username and password to log-in or <a id='create-link' href="{{ url_for('account') }}">Click Here</a> to create an account</p>
+        <form id='account-form' action="{{ url_for('login') }}" method='POST'>
+          <label><span class="hidden">username</span><input  class='input-box' type='text' required name='username' placeholder='Username...'></label>
+          <label><span class="hidden">password</span><input  class='input-box' type='password' required name='password' placeholder='Password...'></label>
+          <button class="form-submit-button" type="submit">Log-in</button>
+        </form>
+      </div>
     </div>
   {%endif %}
 
