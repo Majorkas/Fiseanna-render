@@ -5,27 +5,30 @@
 
 
 <div id='create'>
-      <h3>Fill in your details bellow</h3>
+  <div id='form-elem'>
+      <h1>Fill in your details bellow</h1>
       <span id='error' class='error-message'>{{message}}</span>
-      <form class="hidden" id='index-form' action="{{ url_for('create') }}" method='POST'>
+      <form id='account-form' action="{{ url_for('create') }}" method='POST'>
         <label><span class="hidden">username</span><input  class='input-box' type='text' required name='create-username' placeholder='Username...'></label>
         <label><span class="hidden">password</span><input  class='input-box' type='password' required name='create-password' placeholder='Password...'></label>
         <label><span class="hidden">confirm password</span><input  class='input-box' type='password' required name='confirm-password' placeholder='Confirm Password'></label>
         <button class="form-submit-button" type="submit">Create Account</button>
       </form>
-    </div>
-
+  </div>
+</div>
 
 
 
 
 {%endblock%}
 {% block footer%}
+  <footer>
+    <div id='footer'>
 
 
     <a href="mailto:aaronrichards46@gmail.com" id="copyright">© 2025 Aaron Richards. All Rights Reserved.</a>
 
-
+    </div>
   </footer>
 </body>
 </html>
