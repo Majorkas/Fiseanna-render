@@ -184,6 +184,15 @@ text-align: center;
   align-self: center;
 
 }
+#account-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #0000007c;
+  align-self: center;
+  width: 100%;
+  align-items: center;
+
+}
 #name-box {
   margin: 10px;
   width: 75px;
@@ -227,6 +236,25 @@ text-align: center;
   flex-direction: column;
   flex-wrap: wrap;
   color: white;
+}
+#create-login-form {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #1e4a07c9;
+  color: white;
+
+}
+#create-link{
+  text-decoration: none;
+  color: white;
+  transition: all 0.75s;
+
+}
+#create-link:hover{
+  color: red;
+
 }
 
 #copyright {
