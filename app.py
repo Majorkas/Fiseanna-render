@@ -1,13 +1,15 @@
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from flask_socketio import SocketIO, emit
 
 from flask import Flask, render_template, request, redirect, url_for, session
-# load_dotenv('enviro.env')
+load_dotenv('enviro.env')
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 class PasswordError(Exception):
+    pass
+class UsernameError(Exception):
     pass
 
 class Account:
@@ -53,14 +55,16 @@ def account():
 
 @app.route("/create", methods=['POST'])
 def create():
+        """Used to create an account taking the form inputs checking if the username is already present in the dict and seeing if the
+        password and confirm password inputs match finally returning a success page if all if good"""
 
         username = request.form['create-username']
         password = request.form['create-password']
         confirmed_password = request.form['confirm-password']
         if password != confirmed_password:
-            return render_template('account.html', message = error_message_dict['password_not_match'] )
+            return render_template('account.html', message = PasswordError(error_message_dict['password_not_match']) )
         if username in user_log_in_info:
-            return render_template('account.html', message = error_message_dict['username_create'] )
+            return render_template('account.html', message = UsernameError(error_message_dict['username_create']) )
 
         username = Account(username,password)
         user_log_in_info[username.username] = username.password
@@ -68,14 +72,23 @@ def create():
 
 @app.route("/store", methods=['POST'])
 def login():
+    """ log-in action for the site takes the username and password and checks it against the dict storing all
+      the usernames to see if it exists and then checks to make sure the password is correct """
     username = request.form['username']
     password = request.form['password']
 
     if username not in user_log_in_info:
-        return render_template('store.html', message = error_message_dict['User_not_found'])
+        return render_template('store.html', message = UsernameError(error_message_dict['User_not_found']))
     if password != user_log_in_info.get(username):
-        return render_template('store.html', message = error_message_dict['incorrect_password'])
+        return render_template('store.html', message = PasswordError(error_message_dict['incorrect_password']))
     session['username'] = username
+    return redirect(url_for('store'))
+
+@app.route('/logout')
+def logout():
+    """Logout action for the app, but still keeping the user in the login info so they can log back in if needed until the site restarts"""
+    session.pop('username', None)
+
     return redirect(url_for('store'))
 
 
