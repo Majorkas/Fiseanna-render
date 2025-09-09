@@ -91,44 +91,122 @@ def logout():
 
     return redirect(url_for('store'))
 
-
+store_page_dict = {
+    'blackcastle' : {
+        'src_main':"../static/images/black-castle.jpg",
+        'src_framed':"../static/images/blackcastle-framed.PNG",
+        'alt_main':"image of the front of a pub",
+        'alt_framed' : "framed image of the front of a pub",
+        'name' : "BlackCastle Pub Print",
+        'desc': "Print of your chosen size either framed or not framed of the front of a bar called the BlackCastle based in Wicklow Town"
+    },
+    'faces' : {
+        'src_main':"../static/images/faces.jpg",
+        'src_framed':"../static/images/faces-framed-small.PNG",
+        'alt_main':"image taken of a person wearing multiple masks on a stage",
+        'alt_framed' : "Framed image taken of a person wearing multiple masks on a stage",
+        'name' : "Many Faces Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'lake' : {
+        'src_main':"../static/images/lake.jpg",
+        'src_framed':"../static/images/lake-framed-small.PNG",
+        'alt_main':"A landscape photo of a large lake in a valley",
+        'alt_framed' : "Framed landscape photo of a large lake in a valley",
+        'name' : "Lakes Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'sheep' : {
+        'src_main':"../static/images/sheep-pic.jpg",
+        'src_framed':"../static/images/sheep-framed.PNG",
+        'alt_main':"image of a field with three sheep in view",
+        'alt_framed' : "Framed image of a field with three sheep in view",
+        'name' : "Three Sheep Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'bmx' : {
+        'src_main':"../static/images/bike.jpeg",
+        'src_framed':"../static/images/bike-framed.JPG",
+        'alt_main':"Image of a man doing a trick on a BMX bike",
+        'alt_framed' : "Framed Image of a man doing a trick on a BMX bike",
+        'name' : "BMX Stunt Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'TaSe' : {
+        'src_main':"../static/images/pub-2.jpg",
+        'src_framed':"../static/images/pub-framed.JPG",
+        'alt_main':"image of the front of a pub covered in Guinness logos",
+        'alt_framed' : "Framed image of the front of a pub covered in Guinness logos",
+        'name' : "Tá Se's Pub Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'bird' : {
+        'src_main':"../static/images/bird.jpg",
+        'src_framed':"../static/images/bird-framed.JPG",
+        'alt_main':"image of a small bird sitting on a branch",
+        'alt_framed' : "Framed image of a small bird sitting on a branch",
+        'name' : "Little Bird Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'hills' : {
+        'src_main':"../static/images/fields.jpg",
+        'src_framed':"../static/images/fields-framed.JPG",
+        'alt_main':"image of an open field with rolling hills in the background",
+        'alt_framed' : "Framed image of an open field with rolling hills in the background",
+        'name' : "Rolling Hills Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'evischen' : {
+        'src_main':"../static/images/evicshen-opium.jpg",
+        'src_framed':"../static/images/evicshen-framed.JPG",
+        'alt_main':"image of a musician holding a mini drum with a symbal attached about to tap it",
+        'alt_framed' : "Framed image of a musician holding a mini drum with a symbal attached about to tap it",
+        'name' : "Evischen at Opium Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+    'lighthouse' : {
+        'src_main':"../static/images/lighthouse.jpg",
+        'src_framed':"../static/images/lighthouse-framed.JPG",
+        'alt_main':"image of someone jumping a gap in front of a lighthouse",
+        'alt_framed' : "Framed image of someone jumping a gap in front of a lighthouse",
+        'name' : "Lighthouse Jump Print",
+        'desc': "Print of your chosen size either framed or not framed of"
+    },
+}
 
 
 
 
 @app.route("/store/blackcastle")
 def blackcastle():
-    return render_template("/store-item-1.html")
-
+    return render_template("/store-item.html", src_main = store_page_dict['blackcastle']['src_main'],src_framed=store_page_dict['blackcastle']['src_framed'], alt_main = store_page_dict['blackcastle']['alt_main'], alt_framed = store_page_dict['blackcastle']['alt_framed'],name= store_page_dict['blackcastle']['name'], desc = store_page_dict['blackcastle']['desc'] )
 @app.route("/store/faces")
 def faces():
-    return render_template("/store-item-2.html")
-
+    return render_template("/store-item.html", src_main = store_page_dict['faces']['src_main'],src_framed=store_page_dict['faces']['src_framed'], alt_main = store_page_dict['faces']['alt_main'], alt_framed = store_page_dict['faces']['alt_framed'],name= store_page_dict['faces']['name'], desc = store_page_dict['faces']['desc'] )
 @app.route("/store/lake")
 def lake():
-    return render_template("/store-item-3.html")
-
+    return render_template("/store-item.html", src_main = store_page_dict['lake']['src_main'],src_framed=store_page_dict['lake']['src_framed'], alt_main = store_page_dict['lake']['alt_main'], alt_framed = store_page_dict['lake']['alt_framed'],name= store_page_dict['lake']['name'], desc = store_page_dict['lake']['desc'] )
 @app.route("/store/sheep")
 def sheep():
-    return render_template("/store-item-4.html")
+    return render_template("/store-item.html", src_main = store_page_dict['sheep']['src_main'],src_framed=store_page_dict['sheep']['src_framed'], alt_main = store_page_dict['sheep']['alt_main'], alt_framed = store_page_dict['sheep']['alt_framed'],name= store_page_dict['sheep']['name'], desc = store_page_dict['sheep']['desc'] )
 @app.route("/store/bmx")
 def bmx():
-    return render_template("/store-item-5.html")
+    return render_template("/store-item.html", src_main = store_page_dict['bmx']['src_main'],src_framed=store_page_dict['bmx']['src_framed'], alt_main = store_page_dict['bmx']['alt_main'], alt_framed = store_page_dict['bmx']['alt_framed'],name= store_page_dict['bmx']['name'], desc = store_page_dict['bmx']['desc'] )
 @app.route("/store/TaSe")
 def TaSe():
-    return render_template("/store-item-6.html")
+    return render_template("/store-item.html", src_main = store_page_dict['TaSe']['src_main'],src_framed=store_page_dict['TaSe']['src_framed'], alt_main = store_page_dict['TaSe']['alt_main'], alt_framed = store_page_dict['TaSe']['alt_framed'],name= store_page_dict['TaSe']['name'], desc = store_page_dict['TaSe']['desc'] )
 @app.route("/store/bird")
 def bird():
-    return render_template("/store-item-7.html")
+    return render_template("/store-item.html", src_main = store_page_dict['bird']['src_main'],src_framed=store_page_dict['bird']['src_framed'], alt_main = store_page_dict['bird']['alt_main'], alt_framed = store_page_dict['bird']['alt_framed'],name= store_page_dict['bird']['name'], desc = store_page_dict['bird']['desc'] )
 @app.route("/store/lighthouse")
 def lighthouse():
-    return render_template("/store-item-8.html")
+    return render_template("/store-item.html", src_main = store_page_dict['lighthouse']['src_main'],src_framed=store_page_dict['lighthouse']['src_framed'], alt_main = store_page_dict['lighthouse']['alt_main'], alt_framed = store_page_dict['lighthouse']['alt_framed'],name= store_page_dict['lighthouse']['name'], desc = store_page_dict['lighthouse']['desc'] )
 @app.route("/store/hills")
 def hills():
-    return render_template("/store-item-9.html")
+    return render_template("/store-item.html", src_main = store_page_dict['hills']['src_main'],src_framed=store_page_dict['hills']['src_framed'], alt_main = store_page_dict['hills']['alt_main'], alt_framed = store_page_dict['hills']['alt_framed'],name= store_page_dict['hills']['name'], desc = store_page_dict['hills']['desc'] )
 @app.route("/store/evischen")
 def evischen():
-    return render_template("/store-item-10.html")
+    return render_template("/store-item.html", src_main = store_page_dict['evischen']['src_main'],src_framed=store_page_dict['evischen']['src_framed'], alt_main = store_page_dict['evischen']['alt_main'], alt_framed = store_page_dict['evischen']['alt_framed'],name= store_page_dict['evischen']['name'], desc = store_page_dict['evischen']['desc'] )
 
 if __name__ == "__main__":
     app.run(debug=True, port=9101)
