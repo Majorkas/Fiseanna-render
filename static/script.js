@@ -9,11 +9,11 @@ const shipToWorld = 9.99
 const importFees = 0.2
 const address = document.getElementById('shipping-location')
 const mainImg = document.getElementById('Main-img');
-const SMALL_PRINT = 6
-const MEDIUM_PRINT = 8
-const LARGE_PRINT = 12
-const XLARGE_PRINT = 16
-const WITH_FRAME = 9.99
+const SMALL_PRINT = 13
+const MEDIUM_PRINT = 17
+const LARGE_PRINT = 21
+const XLARGE_PRINT = 25
+const WITH_FRAME = 20
 const NO_FRAME = 0
 const IMG_ID_SRC = {
   'Main-img': "static/images/lake.jpg",
