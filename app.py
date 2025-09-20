@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 import random
-from dict_class_storage import error_message_dict, store_page_dict, PasswordError, UsernameError, Account, blackcastle, faces, lake
+from models import error_message_dict, PasswordError, UsernameError, Account, blackcastle, faces, lake, sheep, bmx, TaSe,evischen,lighthouse,hills,bird
 from flask import Flask, render_template, request, redirect, url_for, session
 load_dotenv('enviro.env')
 
@@ -36,7 +36,12 @@ def created():
 @app.route("/store")
 def store():
     if session['username']:
+        '''
+        This is here to make sure that when you are logged in and go onto the store page
+        it will display the random message
+        '''
         username = session['username']
+
         welcome_templates = [
         f"Welcome back to our store, {username.title()}! Ready to shop?",
         f"Hey {username.title()}, great to see you again! Check out our latest deals.",
@@ -75,7 +80,8 @@ def create():
 @app.route("/store", methods=['POST'])
 def login():
     """ log-in action for the site takes the username and password and checks it against the dict storing all
-      the usernames to see if it exists and then checks to make sure the password is correct """
+      the usernames to see if it exists and then checks to make sure the password is correct if all is correct
+      it will take the username and input it into a random welcome message to display on the store page """
     username = request.form['username']
     password = request.form['password']
     welcome_templates = [
@@ -100,44 +106,47 @@ def login():
 
 @app.route('/logout')
 def logout():
-    """Logout action for the app, but still keeping the user in the login info so they can log back in if needed until the site restarts"""
+    """Logout action for the app, but still keeping the user in the
+    login info so they can log back in if needed until the site restarts"""
     session.pop('username', None)
 
     return redirect(url_for('store'))
-
 '''
-All of the bellow is for rendering each store page taking the needed src and alts from the imported store_page_dict and applying them to the html with the help of render_template and jinja so there is only the need for one html page for the store items rather than 10
+All of the bellow is for rendering each store page taking the needed src and
+alts from the imported store_page_dict and applying them to the html with
+the help of render_template and jinja so there is only the need for one html page for
+the store items rather than 10
 '''
 @app.route("/store/blackcastle")
 def blackcastle_page():
     return render_template("/store-item.html", src_main = blackcastle.img,src_framed=blackcastle.secondary, alt_main = blackcastle.alt, alt_framed = blackcastle.alt_secondary,name= blackcastle.name, desc = blackcastle.desc )
 @app.route("/store/faces")
 def faces_page():
-    return render_template("/store-item.html", src_main = store_page_dict['faces']['src_main'],src_framed=store_page_dict['faces']['src_framed'], alt_main = store_page_dict['faces']['alt_main'], alt_framed = store_page_dict['faces']['alt_framed'],name= store_page_dict['faces']['name'], desc = store_page_dict['faces']['desc'] )
+    return render_template("/store-item.html", src_main = faces.img,src_framed=faces.secondary, alt_main = faces.alt, alt_framed = faces.alt_secondary,name= faces.name, desc = faces.desc )
 @app.route("/store/lake")
 def lake_page():
-    return render_template("/store-item.html", src_main = store_page_dict['lake']['src_main'],src_framed=store_page_dict['lake']['src_framed'], alt_main = store_page_dict['lake']['alt_main'], alt_framed = store_page_dict['lake']['alt_framed'],name= store_page_dict['lake']['name'], desc = store_page_dict['lake']['desc'] )
+    return render_template("/store-item.html", src_main = lake.img, src_framed = lake.secondary, alt_main = lake.alt, alt_framed = lake.alt_secondary ,name = lake.name, desc = lake.desc )
 @app.route("/store/sheep")
 def sheep_page():
-    return render_template("/store-item.html", src_main = store_page_dict['sheep']['src_main'],src_framed=store_page_dict['sheep']['src_framed'], alt_main = store_page_dict['sheep']['alt_main'], alt_framed = store_page_dict['sheep']['alt_framed'],name= store_page_dict['sheep']['name'], desc = store_page_dict['sheep']['desc'] )
+    return render_template("/store-item.html", src_main = sheep.img,src_framed=sheep.secondary, alt_main = sheep.alt, alt_framed = sheep.secondary,name= sheep.name, desc = sheep.desc )
 @app.route("/store/bmx")
 def bmx_page():
-    return render_template("/store-item.html", src_main = store_page_dict['bmx']['src_main'],src_framed=store_page_dict['bmx']['src_framed'], alt_main = store_page_dict['bmx']['alt_main'], alt_framed = store_page_dict['bmx']['alt_framed'],name= store_page_dict['bmx']['name'], desc = store_page_dict['bmx']['desc'] )
+    return render_template("/store-item.html", src_main = bmx.img,src_framed=bmx.secondary, alt_main = bmx.alt, alt_framed = bmx.alt_secondary,name= bmx.name, desc = bmx.desc )
 @app.route("/store/TaSe")
 def TaSe_page():
-    return render_template("/store-item.html", src_main = store_page_dict['TaSe']['src_main'],src_framed=store_page_dict['TaSe']['src_framed'], alt_main = store_page_dict['TaSe']['alt_main'], alt_framed = store_page_dict['TaSe']['alt_framed'],name= store_page_dict['TaSe']['name'], desc = store_page_dict['TaSe']['desc'] )
+    return render_template("/store-item.html", src_main = TaSe.img,src_framed=TaSe.secondary, alt_main = TaSe.alt, alt_framed = TaSe.alt_secondary,name= TaSe.name, desc = TaSe.desc )
 @app.route("/store/bird")
 def bird_page():
-    return render_template("/store-item.html", src_main = store_page_dict['bird']['src_main'],src_framed=store_page_dict['bird']['src_framed'], alt_main = store_page_dict['bird']['alt_main'], alt_framed = store_page_dict['bird']['alt_framed'],name= store_page_dict['bird']['name'], desc = store_page_dict['bird']['desc'] )
+    return render_template("/store-item.html", src_main = bird.img,src_framed=bird.secondary, alt_main = bird.alt, alt_framed = bird.alt_secondary,name= bird.name, desc = bird.desc )
 @app.route("/store/lighthouse")
 def lighthouse_page():
-    return render_template("/store-item.html", src_main = store_page_dict['lighthouse']['src_main'],src_framed=store_page_dict['lighthouse']['src_framed'], alt_main = store_page_dict['lighthouse']['alt_main'], alt_framed = store_page_dict['lighthouse']['alt_framed'],name= store_page_dict['lighthouse']['name'], desc = store_page_dict['lighthouse']['desc'] )
+    return render_template("/store-item.html", src_main = lighthouse.img,src_framed=lighthouse.secondary, alt_main = lighthouse.alt, alt_framed = lighthouse.alt_secondary,name= lighthouse.name, desc = lighthouse.desc )
 @app.route("/store/hills")
 def hills_page():
-    return render_template("/store-item.html", src_main = store_page_dict['hills']['src_main'],src_framed=store_page_dict['hills']['src_framed'], alt_main = store_page_dict['hills']['alt_main'], alt_framed = store_page_dict['hills']['alt_framed'],name= store_page_dict['hills']['name'], desc = store_page_dict['hills']['desc'] )
+    return render_template("/store-item.html", src_main = hills.img,src_framed=hills.secondary, alt_main = hills.alt, alt_framed = hills.alt_secondary,name= hills.name, desc = hills.desc )
 @app.route("/store/evischen")
 def evischen_page():
-    return render_template("/store-item.html", src_main = store_page_dict['evischen']['src_main'],src_framed=store_page_dict['evischen']['src_framed'], alt_main = store_page_dict['evischen']['alt_main'], alt_framed = store_page_dict['evischen']['alt_framed'],name= store_page_dict['evischen']['name'], desc = store_page_dict['evischen']['desc'] )
+    return render_template("/store-item.html", src_main = evischen.img,src_framed=evischen.secondary, alt_main = evischen.alt, alt_framed = evischen.alt_secondary,name= evischen.name, desc = evischen.desc )
 
 
 
