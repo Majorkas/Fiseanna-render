@@ -35,7 +35,7 @@ def created():
 
 @app.route("/store")
 def store():
-    if session['username']:
+    try:
         '''
         This is here to make sure that when you are logged in and go onto the store page
         it will display the random message
@@ -55,7 +55,8 @@ def store():
         f"Hi {username.title()}! Shop the best deals just for you."
         ]
         return render_template('store.html', log_in_message = str(random.choice(welcome_templates)))
-    return render_template("store.html")
+    except:
+        return render_template("store.html")
 @app.route('/account')
 def account():
     return render_template("account.html")
