@@ -104,7 +104,7 @@ def login():
         return render_template('store.html', message = PasswordError(error_message_dict['incorrect_password']))
     session['username'] = username
 
-    return render_template('store.html', log_in_message = str(random.choice(welcome_templates))),session['username']
+    return render_template('store.html', log_in_message = str(random.choice(welcome_templates)))
 
 @app.route('/logout')
 def logout():
