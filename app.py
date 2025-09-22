@@ -234,7 +234,9 @@ def evischen_page():
     return render_template("/store-item.html", src_main = evischen.img,src_framed=evischen.secondary, alt_main = evischen.alt, alt_framed = evischen.alt_secondary,name= evischen.name, desc = evischen.desc )
 
 
-
+@app.errorhandler(404)
+def error(e):
+    return render_template("404.html")
 
 
 if __name__ == "__main__":
