@@ -101,6 +101,8 @@ Items in red are additions made to the orignal site map
 
 ![Additions](site-maps\additions.JPG)
 
+![Updated site map](site-maps\Full-site-map-updated.JPG)
+
 
 ## Closing Thoughts: 
 Overall I am very happy with how the site turned out, I think it is easy to navigate around, I am also very happy with how the move to flask went and I think I have a good understanding of how flask works and how to use it to make a more dynamic site. In the future I would like to add a few more features such as a shopping cart and a checkout system but for now I am happy with what I have achieved.
