@@ -12,10 +12,18 @@ user_log_in_info = {}
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    '''Pre fill the name section of the form with the users username if logged in'''
+    try:
+        username = session['username']
+        return render_template("index.html", name = username.title())
+
+    except:
+        return render_template("index.html")
 
 @app.route('/', methods=['POST'])
 def form_submission():
+
+    '''Takes the information from the form (name, email and the message) and writes it to a file '''
     name = request.form["name"]
     email = request.form['email']
     message = request.form['message']

@@ -39,7 +39,7 @@
         <p>Send us an email with all the details and we will get back to you as soon as possible!</p>
         <form id="index-form" action="{{ url_for('form_submission') }}" method="POST">
           <label><span class="hidden">NAME</span>
-            <input autocomplete="name" id="name-box" class="input-box" type="text" name="name" placeholder="Name...."
+            <input autocomplete="name" id="name-box" value="{{name}}" class="input-box" type="text" name="name" placeholder="Name...."
               required>
           </label>
           <label><span class="hidden">email</span>
