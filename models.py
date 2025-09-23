@@ -117,7 +117,7 @@ faces = Store_Item(
     "image taken of a person wearing multiple masks on a stage",
     "Framed image taken of a person wearing multiple masks on a stage",
     "Many Faces Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of a person wearing multiple masks on a stage",
     13,
     1,
     )
@@ -127,7 +127,7 @@ lake = Store_Item(
     "A landscape photo of a large lake in a valley",
     "Framed landscape photo of a large lake in a valley",
     "Lakes Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of a large lake in a valley",
     13,
     1,
     )
@@ -137,7 +137,7 @@ sheep = Store_Item(
     "image of a field with three sheep in view",
     "Framed image of a field with three sheep in view",
     "Three Sheep Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed ofa field with three sheep in view",
     13,
     1,
     )
@@ -147,7 +147,7 @@ bmx = Store_Item(
     "Image of a man doing a trick on a BMX bike",
     "Framed Image of a man doing a trick on a BMX bike",
     "BMX Stunt Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of a man doing a trick on a BMX bike",
     13,
     1,
     )
@@ -157,7 +157,7 @@ TaSe = Store_Item(
     "image of the front of a pub covered in Guinness logos",
     "Framed image of the front of a pub covered in Guinness logos",
     "Tá Se's Pub Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of the front of a pub covered in Guinness logos",
     13,
     1,
     )
@@ -167,7 +167,7 @@ bird = Store_Item(
     "image of a small bird sitting on a branch",
     "Framed image of a small bird sitting on a branch",
     "Little Bird Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of a small bird sitting on a branch",
     13,
     1,
     )
@@ -177,7 +177,7 @@ hills = Store_Item(
     "image of an open field with rolling hills in the background",
     "Framed image of an open field with rolling hills in the background",
     "Rolling Hills Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of an open field with rolling hills in the background",
     13,
     1,
     )
@@ -187,7 +187,7 @@ evischen = Store_Item(
     "image of a musician holding a mini drum with a symbal attached about to tap it",
     "Framed image of a musician holding a mini drum with a symbal attached about to tap it",
     "Evischen at Opium Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of a musician holding a mini drum with a symbal attached about to tap it",
     13,
     1,
     )
@@ -197,7 +197,7 @@ lighthouse = Store_Item(
     "image of someone jumping a gap in front of a lighthouse",
     "Framed image of someone jumping a gap in front of a lighthouse",
     "Lighthouse Jump Print",
-    "Print of your chosen size either framed or not framed of",
+    "Print of your chosen size either framed or not framed of someone jumping a gap in front of a lighthouse",
     13,
     1,
     )
