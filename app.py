@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-import random
 from models import error_message_dict, PasswordError, UsernameError, Account, blackcastle, faces, lake, sheep, bmx, TaSe,evischen,lighthouse,hills,bird, welcome
 from flask import Flask, render_template, request, redirect, url_for, session
 load_dotenv('enviro.env')
