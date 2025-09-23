@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 import random
-from models import error_message_dict, PasswordError, UsernameError, Account, blackcastle, faces, lake, sheep, bmx, TaSe,evischen,lighthouse,hills,bird
+from models import error_message_dict, PasswordError, UsernameError, Account, blackcastle, faces, lake, sheep, bmx, TaSe,evischen,lighthouse,hills,bird, welcome
 from flask import Flask, render_template, request, redirect, url_for, session
 load_dotenv('enviro.env')
 
@@ -41,62 +41,7 @@ def store():
         it will display the random message
         '''
         username = session['username']
-
-        welcome_templates = [
-        f"Welcome back to our store, {username.title()}! Ready to shop?",
-        f"Hey {username.title()}, great to see you again! Check out our latest deals.",
-        f"Hello {username.title()}! Your cart is waiting for you.",
-        f"Hi {username.title()}, we've missed you! Discover new arrivals today.",
-        f"Glad you're here, {username.title()}! Enjoy exclusive member offers." ,
-        f"Welcome, {username.title()}! Let's find something special for you.",
-        f"Hey {username.title()}, your favorite products are just a click away.",
-        f"Good to see you, {username.title()}! Don't miss our flash sales.",
-        f"Yo {username.title()}, ready to treat yourself?",
-        f"Hi {username.title()}! Shop the best deals just for you.",
-        f"Welcome, {username.title()}! We have new recommendations for you.",
-        f"Hey {username.title()}, your wishlist items are on sale!",
-        f"Hello {username.title()}! Find your next favorite product.",
-        f"Hi {username.title()}, exclusive discounts await you.",
-        f"Glad to see you, {username.title()}! Check out trending items.",
-        f"Welcome back, {username.title()}! Your loyalty means a lot.",
-        f"Hey {username.title()}, discover top-rated products today.",
-        f"Hello {username.title()}! Your shopping adventure starts here.",
-        f"Hi {username.title()}, don't forget to use your reward points.",
-        f"Welcome, {username.title()}! Enjoy free shipping on select items.",
-        f"Hey {username.title()}, new arrivals just landed.",
-        f"Good to see you, {username.title()}! Shop with confidence.",
-        f"Yo {username.title()}, your personalized deals are ready.",
-        f"Hi {username.title()}! Save big on your favorite brands.",
-        f"Welcome, {username.title()}! Your feedback helps us improve.",
-        f"Hey {username.title()}, shop now and earn bonus points.",
-        f"Hello {username.title()}! Limited-time offers just for you.",
-        f"Hi {username.title()}, explore our bestsellers.",
-        f"Glad you're here, {username.title()}! Enjoy hassle-free returns.",
-        f"Welcome back, {username.title()}! Your last order was a hit.",
-        f"Hey {username.title()}, get inspired by our collections.",
-        f"Hello {username.title()}! Your next purchase could be free.",
-        f"Hi {username.title()}, refer a friend and save more.",
-        f"Welcome, {username.title()}! Shop eco-friendly products.",
-        f"Hey {username.title()}, your style, your store.",
-        f"Good to see you, {username.title()}! Shop by category.",
-        f"Yo {username.title()}, flash deals are live now.",
-        f"Hi {username.title()}! Your opinion matters to us.",
-        f"Welcome, {username.title()}! Shop with exclusive coupons.",
-        f"Hey {username.title()}, your favorite items are restocked.",
-        f"Hello {username.title()}! Enjoy seamless checkout.",
-        f"Hi {username.title()}, discover new brands today.",
-        f"Glad to see you, {username.title()}! Shop trending now.",
-        f"Welcome back, {username.title()}! Your shopping journey continues.",
-        f"Hey {username.title()}, unlock special rewards.",
-        f"Hello {username.title()}! Shop with confidence.",
-        f"Hi {username.title()}, your cart is waiting for you.",
-        f"Welcome, {username.title()}! Find something unique.",
-        f"Hey {username.title()}, shop the latest collections.",
-        f"Good to see you, {username.title()}! Enjoy member-only perks.",
-        f"Yo {username.title()}, your next order ships free.",
-        f"Hi {username.title()}! Shop and save today.",
-        ]
-        return render_template('store.html', log_in_message = str(random.choice(welcome_templates)))
+        return render_template('store.html', log_in_message = str(welcome(username)))
     except:
         return render_template("store.html")
 @app.route('/account')
@@ -188,7 +133,7 @@ def login():
         return render_template('store.html', message = PasswordError(error_message_dict['incorrect_password']))
     session['username'] = username
 
-    return render_template('store.html', log_in_message = str(random.choice(welcome_templates)))
+    return render_template('store.html', log_in_message = str(welcome(username)))
 
 @app.route('/logout')
 def logout():
@@ -236,6 +181,11 @@ def evischen_page():
 
 @app.errorhandler(404)
 def error(e):
+    '''
+    Here incase someone tries to manually type in the route or tries to
+    access one that doesnt exist will give them a nice 404 error page with
+    a link to return to the home page
+    '''
     return render_template("404.html")
 
 
