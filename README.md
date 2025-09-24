@@ -84,7 +84,7 @@ It also allowed me to move away from the api on the homepage to a form that woul
 
 The biggest addition I think with the move to python and flask was being able to create a simple account creation and login system storing the users username and password in a dict and then also storing the username in the session so that I could use that username to create a personalised welcome message using random.choice to select a random message from a template list.
 
-One finaly thing I wanted to add after doing some reading about Flask is to add a custom 404 error page so that if the user tries to access a page that doesnt exist it will redirect them to a custom 404 page with a way back to the index of the site rather than just a blank page with a 404 error message making the user have to find the index page themselves.
+One final thing I wanted to add after doing some reading about Flask is to add a custom 404 error page so that if the user tries to access a page that doesnt exist it will redirect them to a custom 404 page which I got the template for off https://codepen.io/robinselmer/pen/vJjbOZ  with a way back to the index of the site rather than just a blank page with a 404 error message making the user have to find the index page themselves.
 
 
 ## Static Site Map: 
